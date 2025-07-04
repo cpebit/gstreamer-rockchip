@@ -85,7 +85,10 @@ glib_dep = dependency('glib-2.0', version : glib_req,
   fallback : ['glib', 'libglib_dep'])
 x11_dep = dependency('x11', required : get_option('rkximage'))
 drm_dep = dependency('libdrm', required : get_option('rkximage'))
-mpp_dep = dependency('rockchip_mpp', required : get_option('rockchipmpp'))
+mpp_dep = declare_dependency(
+  link_args : 'lib/librockchip_mpp.a',
+  include_directories : include_directories('include')
+)
 rga_dep = dependency('librga', required : get_option('rga'))
 
 if rga_dep.found() and not get_option('rga').disabled()
