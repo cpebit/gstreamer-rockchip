@@ -86,7 +86,7 @@ glib_dep = dependency('glib-2.0', version : glib_req,
 x11_dep = dependency('x11', required : get_option('rkximage'))
 drm_dep = dependency('libdrm', required : get_option('rkximage'))
 mpp_dep = declare_dependency(
-  link_args : 'lib/librockchip_mpp.a',
+  dependencies : cc.find_library('rockchip_mpp', dirs : [meson.current_source_dir()]),
   include_directories : include_directories('include')
 )
 rga_dep = dependency('librga', required : get_option('rga'))
