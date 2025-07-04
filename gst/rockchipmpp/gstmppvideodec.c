@@ -90,9 +90,6 @@ gst_mpp_video_dec_get_mpp_type (GstStructure * s)
   if (gst_structure_has_name (s, "video/x-h265"))
     return MPP_VIDEO_CodingHEVC;
 
-  if (gst_structure_has_name (s, "video/x-av1"))
-    return MPP_VIDEO_CodingAV1;
-
   if (gst_structure_has_name (s, "video/mpeg")) {
     gint mpegversion = 0;
     if (gst_structure_get_int (s, "mpegversion", &mpegversion)) {
